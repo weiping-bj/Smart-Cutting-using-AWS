@@ -12,7 +12,8 @@ s3_client = boto3.client('s3', region_name=regionName)
 ddb_resource = boto3.resource('dynamodb', region_name=regionName)
 
 def lambda_handler(event, context):
-    body = json.loads(event['body'])
+#    body = json.loads(event['body'])
+    body = event
     videoPath = str(body['videoPath'])
     templatePath = str(body['templatePath'])
     facePath = str(body['facePath'])
@@ -28,13 +29,11 @@ def lambda_handler(event, context):
     FRAME_RATE = int(facesData['VideoMetadata']['FrameRate'])
     
     PEOPLE = targetPeople.split(',')
-    print(PEOPLE)
     
     timeStamps = []
     scenesTime = []
     
     i = 0
-    print("show me the money: ",facesData['Persons'][i]['FaceMatches'])
     while i < len(facesData['Persons']):
         try:
             for target in PEOPLE:
@@ -102,8 +101,6 @@ def lambda_handler(event, context):
     response = mediaconvert_client.describe_endpoints(Mode='DEFAULT')
     
     mediaURL = response['Endpoints'][0]['Url']
-    
-    print(mediaURL)
     
     mediaconvert_client = boto3.client('mediaconvert',endpoint_url=mediaURL)
     

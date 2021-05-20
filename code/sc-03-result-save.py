@@ -11,10 +11,8 @@ reko_client = boto3.client('rekognition', region_name=regionName)
 sns_client = boto3.client('sns', region_name=regionName)
 
 def lambda_handler(event, context):
-    print("Received event: " + json.dumps(event, indent=2))
     jobIDMessage = json.loads(event['Records'][0]['Sns']['Message'])
     jobID = jobIDMessage['JobId']
-    print("this what we need: ",jobID)
     response = reko_client.get_face_search(
         JobId=jobID
     )
@@ -71,9 +69,9 @@ def lambda_handler(event, context):
     sns_client.publish(
         TopicArn=topicArn,
         Subject="Fasce Searching Succeed",
-        Message=json.dumps(output))
+        Message=json.dumps(output, indent=2))
         
     return {
         'statusCode': 200,
-        'body': json.dumps(output)
+        'body': json.dumps(output, indent=2)
     }

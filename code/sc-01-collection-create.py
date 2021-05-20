@@ -11,8 +11,8 @@ ddb_resource = boto3.resource('dynamodb', region_name=regionName)
 reko_client = boto3.client('rekognition', region_name=regionName)
 
 def lambda_handler(event, context):
-    print("Event received by Lambda function: " + json.dumps(event, indent=2))
-    body = json.loads(event['body'])
+#    body = json.loads(event['body'])
+    body = event
     collectionId = str(body['collectionId'])
     bucketPath = str(body['bucketPath'])
     comments = str(body['comments'])
@@ -91,4 +91,4 @@ def collectionCreation(collectionid, bucketpath, comments):
               'Faces Counts': numbers,
               'Pics Path':   "s3://" + bucketname + "/" + bucketprefix}
 
-    return output
+    return json.dumps(output, indent=2)

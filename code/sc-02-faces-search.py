@@ -9,7 +9,8 @@ reko_client = boto3.client('rekognition', region_name=regionName)
 ddb_resource = boto3.resource('dynamodb', region_name=regionName)
 
 def lambda_handler(event, context):
-    body = json.loads(event['body'])
+#    body = json.loads(event['body'])
+    body = event
     collectionId = str(body['collectionId'])
     videoPath = str(body['videoPath'])
     comments = str(body['comments'])
