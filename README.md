@@ -142,5 +142,5 @@
 
 本原型中已提供一个 [任务模板](resources/job-template.json)，以及一个示例视频。可以利用这些内容对本原型进行验证。
 
-方案的部署过程请参阅《[部署说明](SmartCutting-deploy-CHN)》；  
-方案的 API 说明请参阅《[使用说明](SmartCutting-usage-CHN)》。
+方案的部署过程请参阅《[部署说明](SmartCutting-deploy-CHN.md)》；  
+方案的 API 说明请参阅《[使用说明](SmartCutting-usage-CHN.md)》。
