@@ -11,7 +11,7 @@
 	- 利用 AI 技术，自动识别目标任务；
 	- 无需准备海量训练样本，无需掌握复杂的机器学习技能。
 
-以下内容将详细介绍本方案原型的实现原理，方案的部署过程请参阅《[部署说明](SmartCutting-deploy-CHN)》，方案的 API 说明请参阅《[使用说明](SmartCutting-usage-CHN)》。
+以下内容将详细介绍本方案原型的实现原理，方案的部署过程请参阅《[部署说明](SmartCutting-deploy-CHN.md)》，方案的 API 说明请参阅《[使用说明](SmartCutting-usage-CHN.md)》。
 
 ## 架构说明
 
