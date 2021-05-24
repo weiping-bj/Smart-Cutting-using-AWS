@@ -1,6 +1,6 @@
-# Deploy-about-Smart-Cutting
+# Deploy-advanced-Smart-Cutting
 
-本方案原型采用如下架构：  
+进阶版方案原型采用如下架构：  
 ![architecture](png/00-architecture.png "architecture")
 
 如希望了解架构设计的整体思路，请参考 [架构说明](README.md) 章节；   
@@ -286,7 +286,7 @@ TOPIC_ARN=$NOTIFY_TOPIC_ARN}" \
 --region us-east-1
 ```
 
-可以从 [这里](code/sc-03-result-save.py) 查看函数源代码。
+可以从 [这里](code/sc-result-save.py) 查看函数源代码。
 
 #### sc-04-video-clip
 

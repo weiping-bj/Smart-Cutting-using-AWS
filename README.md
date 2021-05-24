@@ -11,12 +11,32 @@
 	- 利用 AI 技术，自动识别目标任务；
 	- 无需准备海量训练样本，无需掌握复杂的机器学习技能。
 
-以下内容将详细介绍本方案原型的实现原理，方案的部署过程请参阅《[部署说明](SmartCutting-deploy-CHN.md)》，方案的 API 说明请参阅《[使用说明](SmartCutting-usage-CHN.md)》。
+## 架构概述
+本方案原型包含两种实现架构。
 
-## 架构说明
+1. [基础版架构](SmartCutting-basic-CHN.md)；
+2. 进阶版架构：
+	- [部署说明](SmartCutting-deploy-CHN.md)；
+	- [使用说明](SmartCutting-usage-CHN.md)。
+
+### 基础版架构
+
+在基本架构中，主要通过个人终端调用 AWS 相关服务的 API，以人工方式查询任务状态，获取最终结果。
+
+基础版架构图如下：
+![basic-architecture](png/11-architecture-basic.png "basic-architecture")
+
+将使用如下服务：
+1. [Amazon Rekognition](https://aws.amazon.com/cn/rekognition/)：图像和视频分析服务；
+2. [AWS Elemental MediaConvert](https://aws.amazon.com/cn/mediaconvert/)：具有广播级功能的基于文件的视频转码服务；
+3. [AWS Lambda](https://aws.amazon.com/cn/lambda/)：一种无服务器的计算服务，让您无需预置或管理服务器、创建可感知工作负载的集群扩展逻辑、维护事件集成或管理运行时，即可运行代码；
+4. [Amazon S3](https://aws.amazon.com/cn/s3/)：对象存储服务，提供行业领先的可扩展性、数据可用性、安全性和性能；
+5. [Amazon SNS](https://aws.amazon.com/cn/sns/)：一项用于应用与应用之间 (A2A) 以及应用与人之间 (A2P) 通信的完全托管型消息收发服务。
+
+### 进阶版架构
 
 本方案原型使用如下架构：  
-![architecture](png/00-architecture.png "architecture")
+![advanced-architecture](png/00-architecture.png "advanced-architecture")
 
 包含如下主要服务：
 
@@ -28,6 +48,8 @@
 6. [Amazon S3](https://aws.amazon.com/cn/s3/)：对象存储服务，提供行业领先的可扩展性、数据可用性、安全性和性能；
 7. [Amazon CloudFront](https://aws.amazon.com/cn/cloudfront/)：快速内容分发网络 (CDN) 服务，可以安全地以低延迟和高传输速度向全球客户分发数据、视频、应用程序和 API；
 8. [Amazon SNS](https://aws.amazon.com/cn/sns/)：一项用于应用与应用之间 (A2A) 以及应用与人之间 (A2P) 通信的完全托管型消息收发服务。
+
+## 主要技术介绍
 
 从功能角度来说，整个架构可以划分为两个主要部分：人脸识别，视频处理。
 
